@@ -1,5 +1,4 @@
 --Table 1 retirement_titles
-
 SELECT e.emp_no, 
 	e.first_name, 
 	e.last_name,
@@ -20,3 +19,9 @@ FROM retirement_titles
 WHERE to_date = '9999-01-01'
 ORDER BY emp_no, title DESC;
 
+--Retiring titles
+Select COUNT(ut.title), ut.title
+INTO retiring_titles
+FROM unique_titles as ut
+GROUP BY ut.title
+ORDER BY count DESC;
